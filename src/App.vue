@@ -1,30 +1,25 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <div>
-      <router-link to="/foo">Go to Foo</router-link>
-      <router-link to="/bar">Go to Bar</router-link>
-    </div>
-    <router-view></router-view>
   </div>
 </template>
 
 <script>
+  // import TabBar from "./components/tabbar";
+
   export default {
+    // components: {
+    //   "tab-bar": TabBar
+    // },
     computed: {
-      username() {
-        return this.$route.params.username
-      }
     },
     methods: {
-      goBack() {
-        window.history.length > 1 ? this.$router.go(-1) : this.$router.push("/")
-      }
     }
   }
 </script>
 
 <style>
+  @import url(./common/css/common.css);
+
   #app {
     font-family: Avenir, Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -32,5 +27,27 @@
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+  }
+
+  .tab_list {
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  .tab_item {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    border-radius: 30px;
+    text-align: center;
+    color: #fff;
+    display: block;
+    background: goldenrod;
+    margin-right: 30px;
+    text-decoration: none;
+  }
+
+  .tab_item:last-child {
+    margin: 0;
   }
 </style>

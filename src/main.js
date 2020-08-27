@@ -1,24 +1,14 @@
 import Vue from 'vue'
 import App from './App.vue'
-import VueRouter from "vue-router"
+import router from './router.js'
+import TabBar from "./components/tabbar"
 
 Vue.config.productionTip = false
-Vue.use(VueRouter)
-
-
-const Foo = { template: '<div>foo</div>' }
-const Bar = { template: '<div>bar</div>' }
-
-const routes = [
-  { path: '/foo', component: Foo },
-  { path: '/bar', component: Bar }
-]
-
-const router = new VueRouter({
-  routes,
-})
 
 new Vue({
   router,
+  components: {
+    'tab-bar':TabBar
+  },
   render: h => h(App)
 }).$mount('#app')

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slot插槽</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <to-list>
+            <to-item v-for="(item,index) in list" :key="index" :name="item.name">
+                <!-- vue2.5语法  -->
+                <!-- <span slot="pre-icon">前置图标</span>
+                <span slot="suf-icon">后置图标</span>-->
+
+                <!-- vue2.6往后语法 -->
+                <template v-slot:pre-icon="{value}">
+                    <span>前置图标{{value}}</span>
+                </template>
+                <!-- 如果下面的图标不传的话   使用slot中的默认值 -->
+                <template v-slot:suf-icon>
+                    <span>后置图标</span>
+                </template>
+            </to-item>
+        </to-list>
+    </div>
+    <script>
+        Vue.component("to-list", {
+            template: `
+                <ul>
+                    <slot></slot>
+                </ul>
+            `,
+            data: function () {
+                return {
+                }
+            }
+        })
+
+        Vue.component("to-item", {
+            props: {
+                name: String,
+            },
+            data: function () {
+                return {
+                    value: Math.random(),
+                }
+            },
+            template: `
+                <li>
+                    <slot name="pre-icon" :value="value"></slot>
+                    <span>{{name}}</span>
+                    <slot name="suf-icon">sd</slot>
+                </li>
+            `
+        })
+
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: "Hello Vue",
+                list: [
+                    {
+                        name: '课程一'
+                    },
+                    {
+                        name: "课程二"
+                    }
+                ]
+            },
+        })
+    </script>
+</body>
+
+</html>

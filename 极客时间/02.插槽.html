@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>07-slot</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+        <!-- <todo-item v-for="(item,index) in list" :key="index" :title="item.title" :del="item.del"></todo-item> -->
+        <todo-list></todo-list>
+    </div>
+    <script>
+        Vue.component("todo-item", {
+            props: {
+                title: String,
+                del: {
+                    type: Boolean,
+                    default: false,
+                }
+            },
+            template: `
+            <ul>
+                <li v-if="del">{{title}}</li>
+                <li v-else style="text-decoration: line-through;">{{title}}</li>
+            </ul>`,
+            data: function () {
+                return {
+
+                }
+            },
+            methods: {
+
+            }
+        })
+        Vue.component("todo-list", {
+            props: {},
+            template: `
+            <ul>
+                <todo-item v-for="(item,index) in list" :key="index" :title="item.title" :del="item.del"></todo-item>
+            </ul>`,
+            data: function () {
+                return {
+                    list: [
+                        {
+                            title: '课程1',
+                            del: false,
+                        }, {
+                            title: '课程2',
+                            del: false,
+                        }
+                    ]
+                }
+            },
+            methods: {
+
+            }
+        })
+
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'hello world',
+                item: {
+                    title: '课程一',
+                    del: false,
+                },
+                list: [
+                    {
+                        title: '课程1',
+                        del: false,
+                    }, {
+                        title: '课程2',
+                        del: false,
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

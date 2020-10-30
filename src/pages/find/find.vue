@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h3>特权页</h3>
+        <h3>发现</h3>
     </div>
 </template>
 <script>

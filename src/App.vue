@@ -6,12 +6,7 @@
 </template>
 
 <script>
-  // import TabBar from "./components/tabbar";
-
   export default {
-    // components: {
-    //   "tab-bar": TabBar
-    // },
     computed: {
     },
     methods: {

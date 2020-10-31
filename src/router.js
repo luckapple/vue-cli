@@ -12,7 +12,7 @@ const router = new VueRouter({
     routes: [
         {
             path:'/',
-            redirect:"/index"
+            redirect:"/my"
         },
         {
             path: '/index',

@@ -27,7 +27,7 @@
             }
         },
         mounted() {
-            console.log("加载数据")
+            // console.log("加载数据")
         },
         methods: {
             cur_index(num) {

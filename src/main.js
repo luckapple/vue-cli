@@ -6,7 +6,6 @@ import TabBar from "./components/tabbar"
 Vue.config.productionTip = false;
 Vue.component("tab-bar",TabBar)
 
-
 // vuex 
 import Vuex from "vuex"
 Vue.use(Vuex)  
